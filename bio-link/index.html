@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zape Mídia — Bio Link</title>
-  <meta name="description" content="Todos os links da Zape Mídia em um só lugar: site, WhatsApp e TikTok." />
+  <meta name="description" content="Soluções digitais que geram resultados para o seu negócio: tráfego pago, sites, apps e bio links." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -16,187 +16,247 @@
       --orange-dark: #E05A00;
       --orange-light: #FF8C38;
       --black: #0A0A0A;
+      --black-2: #111111;
       --black-3: #1A1A1A;
       --white: #FFFFFF;
+      --white-70: rgba(255,255,255,0.7);
       --white-60: rgba(255,255,255,0.6);
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', sans-serif;
       background: var(--black);
       color: var(--white);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
       overflow-x: hidden;
+      line-height: 1.6;
     }
 
-    .page {
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 24px 0;
+    }
+
+    /* ── HERO ── */
+    .hero {
       position: relative;
-      width: 100%;
-      max-width: 480px;
-      min-height: 100vh;
-      padding: 48px 24px 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      padding: 24px 0 56px;
       overflow: hidden;
     }
 
-    /* decorative dot grids */
-    .dots {
+    .hero-bg {
       position: absolute;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      opacity: 0.6;
-    }
-    .dots span {
-      width: 4px; height: 4px;
-      border-radius: 50%;
-      background: var(--orange);
-    }
-    .dots.top-left { top: 32px; left: 24px; }
-    .dots.bottom-right { bottom: 32px; right: 24px; }
-
-    /* decorative curved lines */
-    .curve {
-      position: absolute;
-      border: 1.5px solid rgba(255,106,0,0.5);
+      inset: -20% -10%;
+      background: radial-gradient(ellipse 50% 40% at 75% 20%, rgba(255,106,0,0.18) 0%, transparent 70%);
       pointer-events: none;
-    }
-    .curve.top-right {
-      top: -60px; right: -60px;
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      border-color: transparent rgba(255,106,0,0.5) transparent transparent;
-    }
-    .curve.bottom-left {
-      bottom: -60px; left: -60px;
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      border-color: transparent transparent transparent rgba(255,106,0,0.5);
+      z-index: 0;
     }
 
-    .logo-wrap {
-      margin-top: 48px;
-      width: 190px;
-      height: 190px;
-      border-radius: 50%;
-      background: radial-gradient(circle at center, rgba(255,106,0,0.25) 0%, rgba(255,106,0,0.05) 60%, transparent 75%);
-      border: 2px solid var(--orange);
-      box-shadow: 0 0 60px rgba(255,106,0,0.45);
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text { flex: 1; min-width: 260px; }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .brand-logo img { height: 52px; width: auto; }
+
+    .hero-title {
+      font-size: clamp(1.6rem, 3.6vw, 2.3rem);
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.5px;
+      margin-bottom: 18px;
+    }
+
+    .hero-title .accent { color: var(--orange); }
+
+    .hero-sub {
+      font-size: .95rem;
+      color: var(--white-70);
+      max-width: 420px;
+      margin-bottom: 28px;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--orange);
+      color: var(--black);
+      font-weight: 700;
+      font-size: .9rem;
+      padding: 14px 26px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(255,106,0,0.35);
+    }
+
+    .btn-whatsapp:hover {
+      background: var(--orange-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(255,106,0,0.5);
+    }
+
+    .hero-visual {
+      flex: 1;
+      min-width: 240px;
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+      min-height: 220px;
     }
 
-    .logo-wrap img {
-      width: 60%;
-      height: 60%;
-      object-fit: contain;
+    .neon-frame {
+      position: absolute;
+      width: 78%;
+      height: 70%;
+      border: 2px solid var(--orange);
+      border-radius: 28px;
+      box-shadow: 0 0 30px rgba(255,106,0,0.5), inset 0 0 30px rgba(255,106,0,0.15);
+      opacity: .85;
     }
 
-    .divider {
-      width: 100%;
-      max-width: 360px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--orange), transparent);
-      margin: 36px 0 28px;
+    .device-icon {
+      position: relative;
+      z-index: 1;
+      color: var(--orange);
     }
 
-    .links {
-      width: 100%;
+    /* ── SERVICES ── */
+    .services {
+      padding: 40px 0 20px;
+      text-align: center;
+    }
+
+    .services h2 {
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    .services h2 .accent { color: var(--orange); }
+
+    .services .sub {
+      font-size: .9rem;
+      color: var(--white-60);
+      margin-bottom: 40px;
+    }
+
+    .card-list {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 22px;
+      margin-bottom: 48px;
     }
 
-    .link-btn {
+    .service-card {
       display: flex;
       align-items: center;
-      gap: 16px;
-      width: 100%;
-      background: rgba(255,106,0,0.05);
-      border: 1.5px solid rgba(255,106,0,0.5);
-      border-radius: 16px;
-      padding: 18px 22px;
-      text-decoration: none;
-      color: var(--white);
-      font-size: 1.15rem;
-      font-weight: 700;
-      transition: background .2s, transform .15s, box-shadow .2s;
+      gap: 24px;
+      background: var(--black-3);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 24px;
+      text-align: left;
+      transition: border-color .2s, transform .2s;
     }
 
-    .link-btn:hover,
-    .link-btn:focus-visible {
-      background: rgba(255,106,0,0.14);
+    .service-card:hover {
+      border-color: rgba(255,106,0,0.35);
       transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(255,106,0,0.3);
     }
 
-    .link-icon {
-      width: 46px; height: 46px;
-      min-width: 46px;
+    .service-icon {
+      width: 56px; height: 56px;
+      min-width: 56px;
       border-radius: 50%;
-      border: 1.5px solid var(--orange);
+      background: var(--orange);
+      color: var(--black);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--orange);
     }
 
-    .link-label { flex: 1; }
+    .service-body { flex: 1; min-width: 0; }
 
-    .link-arrow {
-      color: var(--orange);
-      display: flex;
-      transition: transform .2s;
-    }
-
-    .link-btn:hover .link-arrow { transform: translateX(4px); }
-
-    .bolt-divider {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      width: 100%;
-      max-width: 360px;
-      margin: 40px 0 24px;
-    }
-
-    .bolt-divider .line {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,106,0,0.6));
-    }
-    .bolt-divider .line.right { background: linear-gradient(90deg, rgba(255,106,0,0.6), transparent); }
-    .bolt-divider svg { color: var(--orange); }
-
-    .tagline {
-      text-align: center;
+    .service-body h3 {
       font-size: 1.05rem;
-      line-height: 1.6;
-      color: var(--white);
-      max-width: 340px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
     }
 
-    .tagline .highlight { color: var(--orange); }
+    .service-body p {
+      font-size: .87rem;
+      color: var(--white-60);
+      margin-bottom: 16px;
+    }
 
-    .socials {
+    .btn-saiba-mais {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--orange);
+      color: var(--black);
+      font-weight: 700;
+      font-size: .82rem;
+      padding: 10px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+    }
+
+    .btn-saiba-mais:hover {
+      background: var(--orange-dark);
+      transform: translateY(-1px);
+    }
+
+    /* ── CONECTE-SE ── */
+    .connect {
+      text-align: center;
+      padding: 20px 0 44px;
+    }
+
+    .connect h2 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+
+    .connect h2 .accent { color: var(--orange); }
+
+    .social-row {
       display: flex;
+      justify-content: center;
       gap: 18px;
-      margin-top: 36px;
     }
 
     .social-icon {
-      width: 52px; height: 52px;
-      border-radius: 50%;
+      width: 54px; height: 54px;
+      border-radius: 14px;
       border: 1.5px solid var(--orange);
+      color: var(--orange);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--orange);
       text-decoration: none;
       transition: background .2s, transform .15s;
     }
@@ -206,121 +266,215 @@
       transform: translateY(-2px);
     }
 
+    /* ── FOOTER ── */
     footer {
-      margin-top: auto;
-      padding-top: 36px;
-      font-size: .75rem;
-      color: var(--white-60);
+      border-top: 1px solid rgba(255,106,0,0.25);
+      padding: 32px 24px 40px;
       text-align: center;
     }
 
-    footer a { color: var(--orange-light); text-decoration: none; }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .footer-logo img { height: 36px; width: auto; }
+
+    footer p {
+      font-size: .8rem;
+      color: var(--white-60);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .hero-content { flex-direction: column; text-align: center; }
+      .hero-sub { margin-left: auto; margin-right: auto; }
+      .brand-logo { justify-content: center; }
+      .service-card { flex-direction: column; text-align: center; }
+      .service-body p { margin-left: auto; margin-right: auto; }
+    }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
 
-  <div class="page">
-    <div class="dots top-left">
-      <span></span><span></span><span></span>
-      <span></span><span></span><span></span>
-      <span></span><span></span><span></span>
-    </div>
-    <div class="dots bottom-right">
-      <span></span><span></span><span></span>
-      <span></span><span></span><span></span>
-      <span></span><span></span><span></span>
-    </div>
-    <div class="curve top-right"></div>
-    <div class="curve bottom-left"></div>
+  <div class="wrap">
 
-    <div class="logo-wrap">
-      <img src="logo.png" alt="Zape Mídia" />
-    </div>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="hero-text reveal">
+          <div class="brand-logo">
+            <img src="logo.png" alt="Zape Mídia" />
+          </div>
+          <h1 class="hero-title">
+            SOLUÇÕES DIGITAIS QUE GERAM RESULTADOS<br />
+            <span class="accent">PARA O SEU NEGÓCIO.</span>
+          </h1>
+          <p class="hero-sub">
+            Estratégias inteligentes, tecnologia e criatividade para impulsionar sua marca e aumentar suas vendas.
+          </p>
+          <a class="btn-whatsapp" href="https://wa.me/5519994710700?text=Ol%C3%A1!%20Vim%20pelo%20bio%20link%20e%20quero%20saber%20mais%20sobre%20a%20Zape%20M%C3%ADdia." target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 0C7.163 0 0 7.163 0 16c0 2.827.738 5.486 2.027 7.797L0 32l8.43-2.012A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.784-1.852l-.486-.29-5.003 1.194 1.22-4.867-.317-.5A13.25 13.25 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.278-9.896c-.4-.2-2.364-1.165-2.73-1.299-.366-.133-.633-.2-.9.2-.266.4-1.032 1.299-1.265 1.565-.233.267-.466.3-.866.1-.4-.2-1.688-.622-3.215-1.983-1.188-1.06-1.99-2.37-2.223-2.77-.233-.4-.025-.616.175-.815.18-.178.4-.467.6-.7.2-.233.266-.4.4-.666.133-.267.066-.5-.033-.7-.1-.2-.9-2.166-1.233-2.966-.325-.78-.655-.674-.9-.686-.233-.012-.5-.015-.766-.015s-.7.1-1.067.5c-.367.4-1.4 1.367-1.4 3.333 0 1.966 1.433 3.866 1.633 4.133.2.267 2.82 4.307 6.833 6.04.955.412 1.7.658 2.282.843.958.305 1.831.262 2.52.159.769-.115 2.364-.968 2.697-1.902.333-.933.333-1.733.233-1.9-.1-.167-.366-.267-.766-.467z" transform="scale(0.56)"/>
+            </svg>
+            FALAR NO WHATSAPP
+          </a>
+        </div>
 
-    <div class="divider"></div>
+        <div class="hero-visual reveal">
+          <div class="neon-frame"></div>
+          <svg class="device-icon" width="140" height="140" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+            <rect x="3" y="4" width="18" height="12" rx="1.5"/>
+            <path d="M2 18h20l-1.5 2h-17z"/>
+            <path d="M9.2 8.4l1.8 1.8-1.8 1.8M13 11.6h2"/>
+          </svg>
+        </div>
+      </div>
+    </section>
 
-    <nav class="links">
-      <a class="link-btn" href="https://www.zapemidia.com.br" target="_blank" rel="noopener">
-        <span class="link-icon" aria-hidden="true">
+    <!-- SERVICES -->
+    <section class="services">
+      <h2 class="reveal">NOSSOS <span class="accent">SERVIÇOS</span></h2>
+      <p class="sub reveal">Soluções completas para transformar sua presença digital</p>
+
+      <div class="card-list">
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8M21 7v6M21 7h-6"/>
+            </svg>
+          </div>
+          <div class="service-body">
+            <h3>Tráfego Pago</h3>
+            <p>Gestão de campanhas estratégicas no Google, Meta e TikTok para atrair mais clientes, aumentar suas vendas e maximizar seu retorno sobre investimento.</p>
+            <a class="btn-saiba-mais" href="https://wa.me/5519994710700?text=Ol%C3%A1!%20Vim%20pelo%20bio%20link%20e%20quero%20saber%20mais%20sobre%20Tr%C3%A1fego%20Pago%20(Google%2C%20Meta%20e%20TikTok%20Ads)." target="_blank" rel="noopener">
+              SAIBA MAIS
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <rect x="3" y="4" width="18" height="13" rx="1.5"/>
+              <path stroke-linecap="round" d="M8 21h8M12 17v4"/>
+            </svg>
+          </div>
+          <div class="service-body">
+            <h3>Criação de Sites e Landing Page</h3>
+            <p>Sites profissionais, modernos e otimizados para gerar autoridade, transmitir confiança e converter visitantes em clientes.</p>
+            <a class="btn-saiba-mais" href="https://wa.me/5519994710700?text=Ol%C3%A1!%20Vim%20pelo%20bio%20link%20e%20quero%20saber%20mais%20sobre%20Cria%C3%A7%C3%A3o%20de%20Sites%20e%20Landing%20Page." target="_blank" rel="noopener">
+              SAIBA MAIS
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l-4 3 4 3M16 9l4 3-4 3M13.5 6l-3 12"/>
+            </svg>
+          </div>
+          <div class="service-body">
+            <h3>Criação de Apps e Sistemas</h3>
+            <p>Desenvolvimento de aplicativos e sistemas personalizados para automatizar processos, aumentar a produtividade e escalar seu negócio.</p>
+            <a class="btn-saiba-mais" href="https://wa.me/5519994710700?text=Ol%C3%A1!%20Vim%20pelo%20bio%20link%20e%20quero%20saber%20mais%20sobre%20Cria%C3%A7%C3%A3o%20de%20Apps%20e%20Sistemas." target="_blank" rel="noopener">
+              SAIBA MAIS
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 13a5 5 0 007.07 0l1.93-1.93a5 5 0 00-7.07-7.07L10.5 5.5M14 11a5 5 0 00-7.07 0l-1.93 1.93a5 5 0 007.07 7.07L13.5 18.5"/>
+            </svg>
+          </div>
+          <div class="service-body">
+            <h3>Criação de Bio Links</h3>
+            <p>Páginas personalizadas para centralizar seus links importantes em um único lugar, com design profissional e responsivo.</p>
+            <a class="btn-saiba-mais" href="https://wa.me/5519994710700?text=Ol%C3%A1!%20Vim%20pelo%20bio%20link%20e%20quero%20saber%20mais%20sobre%20Cria%C3%A7%C3%A3o%20de%20Bio%20Links." target="_blank" rel="noopener">
+              SAIBA MAIS
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONECTE-SE -->
+    <section class="connect reveal">
+      <h2>CONECTE-SE <span class="accent">CONOSCO</span></h2>
+      <div class="social-row">
+        <a class="social-icon" href="https://wa.me/5519994710700?text=Ol%C3%A1!%20Vim%20pelo%20bio%20link%20e%20quero%20saber%20mais%20sobre%20a%20Zape%20M%C3%ADdia." target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 0C7.163 0 0 7.163 0 16c0 2.827.738 5.486 2.027 7.797L0 32l8.43-2.012A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.784-1.852l-.486-.29-5.003 1.194 1.22-4.867-.317-.5A13.25 13.25 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.278-9.896c-.4-.2-2.364-1.165-2.73-1.299-.366-.133-.633-.2-.9.2-.266.4-1.032 1.299-1.265 1.565-.233.267-.466.3-.866.1-.4-.2-1.688-.622-3.215-1.983-1.188-1.06-1.99-2.37-2.223-2.77-.233-.4-.025-.616.175-.815.18-.178.4-.467.6-.7.2-.233.266-.4.4-.666.133-.267.066-.5-.033-.7-.1-.2-.9-2.166-1.233-2.966-.325-.78-.655-.674-.9-.686-.233-.012-.5-.015-.766-.015s-.7.1-1.067.5c-.367.4-1.4 1.367-1.4 3.333 0 1.966 1.433 3.866 1.633 4.133.2.267 2.82 4.307 6.833 6.04.955.412 1.7.658 2.282.843.958.305 1.831.262 2.52.159.769-.115 2.364-.968 2.697-1.902.333-.933.333-1.733.233-1.9-.1-.167-.366-.267-.766-.467z" transform="scale(0.69)"/>
+          </svg>
+        </a>
+        <a class="social-icon" href="https://instagram.com/zapemidia" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a class="social-icon" href="https://www.zapemidia.com.br" target="_blank" rel="noopener" aria-label="Site">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <circle cx="12" cy="12" r="9"/>
             <path d="M3 12h18M12 3c2.5 2.7 3.8 5.8 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.8-3.8-9s1.3-6.3 3.8-9z"/>
           </svg>
-        </span>
-        <span class="link-label">Site</span>
-        <span class="link-arrow">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/>
+        </a>
+        <a class="social-icon" href="mailto:zapemidia@gmail.com" aria-label="E-mail">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="5" width="18" height="14" rx="2"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 6.5l9 6.5 9-6.5"/>
           </svg>
-        </span>
-      </a>
-
-      <a class="link-btn" href="https://wa.me/5519994710700?text=Ol%C3%A1!%20Vim%20pelo%20bio%20link%20e%20quero%20saber%20mais%20sobre%20a%20Zape%20M%C3%ADdia." target="_blank" rel="noopener">
-        <span class="link-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M16 0C7.163 0 0 7.163 0 16c0 2.827.738 5.486 2.027 7.797L0 32l8.43-2.012A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.784-1.852l-.486-.29-5.003 1.194 1.22-4.867-.317-.5A13.25 13.25 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.278-9.896c-.4-.2-2.364-1.165-2.73-1.299-.366-.133-.633-.2-.9.2-.266.4-1.032 1.299-1.265 1.565-.233.267-.466.3-.866.1-.4-.2-1.688-.622-3.215-1.983-1.188-1.06-1.99-2.37-2.223-2.77-.233-.4-.025-.616.175-.815.18-.178.4-.467.6-.7.2-.233.266-.4.4-.666.133-.267.066-.5-.033-.7-.1-.2-.9-2.166-1.233-2.966-.325-.78-.655-.674-.9-.686-.233-.012-.5-.015-.766-.015s-.7.1-1.067.5c-.367.4-1.4 1.367-1.4 3.333 0 1.966 1.433 3.866 1.633 4.133.2.267 2.82 4.307 6.833 6.04.955.412 1.7.658 2.282.843.958.305 1.831.262 2.52.159.769-.115 2.364-.968 2.697-1.902.333-.933.333-1.733.233-1.9-.1-.167-.366-.267-.766-.467z" transform="scale(0.69)"/>
-          </svg>
-        </span>
-        <span class="link-label">WhatsApp</span>
-        <span class="link-arrow">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/>
-          </svg>
-        </span>
-      </a>
-
-      <a class="link-btn" href="#" target="_blank" rel="noopener">
-        <span class="link-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M16.6 5.82c-1.05-.94-1.66-2.28-1.66-3.75h-2.7v13.6c0 1.48-1.2 2.68-2.68 2.68a2.68 2.68 0 01-2.68-2.68 2.68 2.68 0 012.68-2.68c.27 0 .54.04.79.11V9.98a5.4 5.4 0 00-.79-.06A5.38 5.38 0 003.28 15.3a5.38 5.38 0 005.38 5.38 5.38 5.38 0 005.38-5.38V9.03a8.3 8.3 0 004.85 1.55V7.9a5.4 5.4 0 01-2.29-.61z"/>
-          </svg>
-        </span>
-        <span class="link-label">TikTok</span>
-        <span class="link-arrow">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/>
-          </svg>
-        </span>
-      </a>
-    </nav>
-
-    <div class="bolt-divider">
-      <div class="line"></div>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>
-      </svg>
-      <div class="line right"></div>
-    </div>
-
-    <p class="tagline">
-      Estratégias inteligentes que conectam marcas a pessoas e
-      <span class="highlight">transformam cliques em resultados reais.</span>
-    </p>
-
-    <div class="socials">
-      <a class="social-icon" href="https://instagram.com/zapemidia" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-          <rect x="3" y="3" width="18" height="18" rx="5"/>
-          <circle cx="12" cy="12" r="4"/>
-          <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/>
-        </svg>
-      </a>
-      <a class="social-icon" href="#" target="_blank" rel="noopener" aria-label="TikTok">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M16.6 5.82c-1.05-.94-1.66-2.28-1.66-3.75h-2.7v13.6c0 1.48-1.2 2.68-2.68 2.68a2.68 2.68 0 01-2.68-2.68 2.68 2.68 0 012.68-2.68c.27 0 .54.04.79.11V9.98a5.4 5.4 0 00-.79-.06A5.38 5.38 0 003.28 15.3a5.38 5.38 0 005.38 5.38 5.38 5.38 0 005.38-5.38V9.03a8.3 8.3 0 004.85 1.55V7.9a5.4 5.4 0 01-2.29-.61z"/>
-        </svg>
-      </a>
-      <a class="social-icon" href="https://wa.me/5519994710700?text=Ol%C3%A1!%20Vim%20pelo%20bio%20link%20e%20quero%20saber%20mais%20sobre%20a%20Zape%20M%C3%ADdia." target="_blank" rel="noopener" aria-label="WhatsApp">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M16 0C7.163 0 0 7.163 0 16c0 2.827.738 5.486 2.027 7.797L0 32l8.43-2.012A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.784-1.852l-.486-.29-5.003 1.194 1.22-4.867-.317-.5A13.25 13.25 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.278-9.896c-.4-.2-2.364-1.165-2.73-1.299-.366-.133-.633-.2-.9.2-.266.4-1.032 1.299-1.265 1.565-.233.267-.466.3-.866.1-.4-.2-1.688-.622-3.215-1.983-1.188-1.06-1.99-2.37-2.223-2.77-.233-.4-.025-.616.175-.815.18-.178.4-.467.6-.7.2-.233.266-.4.4-.666.133-.267.066-.5-.033-.7-.1-.2-.9-2.166-1.233-2.966-.325-.78-.655-.674-.9-.686-.233-.012-.5-.015-.766-.015s-.7.1-1.067.5c-.367.4-1.4 1.367-1.4 3.333 0 1.966 1.433 3.866 1.633 4.133.2.267 2.82 4.307 6.833 6.04.955.412 1.7.658 2.282.843.958.305 1.831.262 2.52.159.769-.115 2.364-.968 2.697-1.902.333-.933.333-1.733.233-1.9-.1-.167-.366-.267-.766-.467z" transform="scale(0.69)"/>
-        </svg>
-      </a>
-    </div>
-
-    <footer>
-      <a href="https://www.zapemidia.com.br">© 2026 Zape Mídia</a>
-    </footer>
+        </a>
+      </div>
+    </section>
   </div>
 
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <img src="logo.png" alt="Zape Mídia" />
+    </div>
+    <p>Marketing que conecta. Estratégias que vendem. Resultados que crescem.</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
